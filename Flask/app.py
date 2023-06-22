@@ -49,15 +49,11 @@ def welcome():
     session=Session(engine)
     results_exp = engine.execute('SELECT distinct experience_level FROM global_salaries where work_year=2022')
     results_job = engine.execute('SELECT distinct job_title FROM global_salaries where work_year=2022')
-    experience_list = []
-    job_title_list = []
-    for experience, job_title in results:
-        experience_list.append(experience)
-        job_title_list.append(job_title)
-        data = [experience_list, job_title_list]
+    experience_list = [experience[0] for experience in results_exp]
+    job_title_list = [jobs_title[0] for jobs_title in results_job]
     session.close()
+    data = [experience_list, job_title_list]
     
-
     return render_template('index.html', exp_job_data=data)
         # f"Available Routes:<br/>"
         # f"/api/v1.0/bytitlechart<br/>"
@@ -65,11 +61,7 @@ def welcome():
         # f"/api/v1.0/byyear<br/>"
         # f"/api/v1.0/countbysector<br/>"
         # f"/api/v1.0/bubblemap<br/>"
-        # 
-@app.route('/CountBySector')
-def countBySector:
-
-    return render_template('Count.html')
+        
 
 
 @app.route("/api/v1.0/bytitlechart")
