@@ -46,23 +46,26 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     """List all available api routes."""
+    
+    return(f"Available Routes:<br/>"
+         f"/api/v1.0/bytitlechart<br/>"
+         f"/api/v1.0/byexperiencelevel<br/>"
+         f"/api/v1.0/byyear<br/>"
+         f"/api/v1.0/countbysector<br/>"
+         f"/api/v1.0/bubblemap<br/>")
+        
+        
+@app.route("/SalaryDashboard")
+def getSalaryDashboard():
     session=Session(engine)
     results_exp = engine.execute('SELECT distinct experience_level FROM global_salaries where work_year=2022')
     results_job = engine.execute('SELECT distinct job_title FROM global_salaries where work_year=2022')
+    session.close()
     experience_list = [experience[0] for experience in results_exp]
     job_title_list = [jobs_title[0] for jobs_title in results_job]
-    session.close()
     data = [experience_list, job_title_list]
     
-    return render_template('index.html', exp_job_data=data)
-        # f"Available Routes:<br/>"
-        # f"/api/v1.0/bytitlechart<br/>"
-        # f"/api/v1.0/byexperiencelevel<br/>"
-        # f"/api/v1.0/byyear<br/>"
-        # f"/api/v1.0/countbysector<br/>"
-        # f"/api/v1.0/bubblemap<br/>"
-        
-
+    return render_template('SalaryDashboard.html', exp_job_data=data)
 
 @app.route("/api/v1.0/bytitlechart")
 def bytitlechart():

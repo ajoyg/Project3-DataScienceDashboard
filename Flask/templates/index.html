@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Data Science Jobs By Company Location</title>
-
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin="" />
+
+ 
 
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='css/style.css')}}">
@@ -18,20 +21,23 @@
 
 <body>
 
-  <!-- The div that holds our map -->
-  <div id="selPanel"> 
-    <select name="selectExp" id="selExpLevel" onchange="optionChanged(this.value)">
+  
+  <div class="well"> 
+    <h5>Experience Level</h5>
+    <select name="selectExp" id="selExpLevel" onchange="optionChangedExp(this.value)">
       {% for expVal in exp_job_data[0] %}
       <option value="{{expVal}}">{{expVal}}</option>
       {% endfor %}
     </select>
-    <select name="selectJob" id="selJobTitle" onchange="optionChanged(this.value)">
+    <h5>Job Title</h5>
+    <select name="selectJob" id="selJobTitle" onchange="optionChangedJob(this.value)">
     {% for jobVal in exp_job_data[1] %}
     <option value="{{jobVal}}">{{jobVal}}</option>
     {% endfor %}
   </select>
   </div>
 
+<!-- The div that holds our map -->
   <div id="map"></div>
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
