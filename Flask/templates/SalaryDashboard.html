@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Data DataScience Dashboard</title>
-    <Sytle>
+    
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
@@ -13,7 +13,7 @@
 
         <!-- Our CSS -->
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='css/style.css')}}">
-    </Style>
+    
 </head>
 <body>
 
@@ -41,8 +41,10 @@
             <div class="well"> 
                 <h5>Experience Level</h5>
                 <select class="form-control" id="selExpLevel" onchange="optionChangedExp(this.value)">
-                    {% for expVal in exp_job_data[0] %}
-                        <option value="{{expVal}}">{{expVal}}</option>
+                    {% for expDict in exp_job_data[0] %}
+                        {% for expKey, expVal in expDict.items() %}
+                            <option value="{{expKey}}">{{expVal}}</option>
+                        {% endfor %}
                     {% endfor %}
                 </select>
                 <h5>Job Title</h5>
@@ -52,13 +54,14 @@
                     {% endfor %}
                 </select>    
             </div>
-        <!-- The div that holds our map -->
-        <div id="map"></div>
-        <!-- Leaflet JS -->
-        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin="">
-        </script>   
+            <!-- The div that holds our map -->
+            <div id="map"></div>
+                <!-- Leaflet JS -->
+                <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+                    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+                    crossorigin="">
+                </script>
+            
         </div>
     </div>
     
@@ -71,10 +74,10 @@
 <!-- initialize Masonry layout - this should arrange each chart based on the available space on the grid -->
 <script>
     var container = document.querySelector('.container');
-    var msnry = new Masonry( container, {
+    var msnry = new Masonry(container, {
         itemSelector: '.grid-item',
         gutter: 10,
-       percentPosition: true
+       //percentPosition: true
     });
 </script>
 
@@ -83,4 +86,4 @@
 <!-- Plotly JavaScript -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <!-- Our JavaScript -->
-<script type="text/javascript" src="{{url_for('static', filename='js/logic.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/maplogic.js')}}"></script>

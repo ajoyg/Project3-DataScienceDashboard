@@ -58,10 +58,20 @@ def welcome():
 @app.route("/SalaryDashboard")
 def getSalaryDashboard():
     session=Session(engine)
-    results_exp = engine.execute('SELECT distinct experience_level FROM global_salaries where work_year=2022')
-    results_job = engine.execute('SELECT distinct job_title FROM global_salaries where work_year=2022')
+    results_exp = engine.execute('SELECT  experience_level, description FROM experience_levels order by experience_rank')
+    results_job = engine.execute('SELECT job_title FROM job_titles order by job_rank, job_title')
     session.close()
-    experience_list = [experience[0] for experience in results_exp]
+    
+    exp_dict = {}
+    for experience, description in results_exp:
+        experience_list = []
+        exp_dict[experience] = description
+        print(experience)
+        print(description)
+        experience_list.append(exp_dict)
+        
+        
+    print(experience_list)
     job_title_list = [jobs_title[0] for jobs_title in results_job]
     data = [experience_list, job_title_list]
     

@@ -1,16 +1,20 @@
 let jobOption = document.getElementById("selJobTitle");
 let expOption = document.getElementById("selExpLevel");
+let mapLayers = {
+  worldMap: new L.layerGroup(),
+  jobTitleLayer: new L.layerGroup(),
+  };
+
+// Add the base layer to the map.
+let worldMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+
 let myMap = L.map("map", {
   center: [38.092, 30.352],
   zoom: 1,
+  layers: [mapLayers.worldMap, mapLayers.jobTitleLayer],
 });
-
-// Add the base layer to the map.
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(myMap);
-
-
-
+worldMap.addTo(myMap);
 drawMap(expOption.value,jobOption.value);
 //drawMap("MI","Data Engineer");
 
@@ -25,28 +29,33 @@ function drawMap(exp,jobTitle)
     // Once we get a response, send the data.features object to the createFeatures function.
     // createFeatures(data.features);
     
-
+   // let cMarkerOld = new L.circleMarker();
+    mapLayers.jobTitleLayer.clearLayers();
+    //layerGroup.clearLayers();
+    
     console.log(exp.toString());
     console.log(jobTitle.toString());  
   let selJobs = data.filter(job => job.job_title == jobTitle && job.experience == exp);
   //let selJobs = selJobsOnly.filter(exp => exp.experience == exp); 
-console.log(selJobs);
-// Create a overlay layer containing the earthquake info.
+//
+// Create a overlay layer containing the job info.
+let jobArray =[]
     for (let i = 0; i < selJobs.length; i++) 
     {
       let avgSalary = selJobs[i].salary_in_usd/5000;
       let experience = selJobs[i].experience;
       let lat = selJobs[i].latitude;
       let lng = selJobs[i].longitude;
-    
-      let salaryMarker = L.circleMarker([lat, lng], {radius: avgSalary, color:"#000" , fillColor:'#69D025' , fillOpacity: 0.5, weight:0.5})
-      .bindPopup(`Average Salary: ${selJobs[i].salary_currency}${selJobs[i].average_salary},  Experience: ${experience}`)
-      .addTo(myMap);
+      let cMarker = L.circleMarker([lat, lng], {radius: avgSalary, color:"#000" , fillColor:'#69D025' , fillOpacity: 0.5, weight:0.5})
+      .bindPopup(`Average Salary: ${selJobs[i].salary_currency}${selJobs[i].average_salary},  Experience: ${experience}`);
+      jobArray.push(cMarker);
     };
+    L.layerGroup(jobArray).addTo(mapLayers.jobTitleLayer);
+    //L.layerGroup(jobArray).addTo(myMap);
     // Trigger the Masonry layout once the map and markers are loaded
-    myMap.whenReady(function () {
-    msnry.layout();
-});
+      // myMap.whenReady(function () {
+      // msnry.layout();
+      // });
   });
 };
 
@@ -60,6 +69,7 @@ function optionChangedJob(newJob)
 {
   let expOption = document.getElementById("selExpLevel");
   let level = expOption.value;
+  //console.log(level, newJob);
   drawMap(level,newJob)
 };
 // Add a legend to the map.
