@@ -1,33 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Access the data passed from Flask
-  var data = JSON.parse('{{ data | tojson | safe }}');
+  // Fetch the data from the API
+  fetch('/api/v1.0/byexperiencelevel')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
 
-  // Extract the required values for the chart
-  var experienceLevels = data.map(function(item) {
-    return item.experience_level;
-  });
-  var salaries = data.map(function(item) {
-    return item.salary;
-  });
+      // Extract the required values for the chart
+      var experienceLevels = data.map(item => item.experience_level);
+      var salaries = data.map(item => item.ave_salary);
 
-  // Define the bar chart trace
-  var trace = {
-    x: experienceLevels,
-    y: salaries,
-    type: 'bar'
-  };
+      console.log(experienceLevels);
+      console.log(salaries);
 
-  // Define the bar chart layout
-  var layout = {
-    title: 'Average Salary by Experience Level',
-    xaxis: {
-      title: 'Experience Level'
-    },
-    yaxis: {
-      title: 'Average Salary'
-    }
-  };
+      // Define the bar chart trace
+      var trace = {
+        x: experienceLevels,
+        y: salaries,
+        type: 'bar'
+      };
 
-  // Create the bar chart
-  Plotly.newPlot('bar-chart', [trace], layout);
+      // Define the bar chart layout
+      var layout = {
+        title: 'Average Salary by Experience Level',
+        xaxis: {
+          title: 'Experience Level',
+          categoryorder: 'array',
+          categoryarray: ['EX', 'SE', 'MI', 'EN']
+        },
+        yaxis: {
+          title: 'Average Salary'
+        }
+      };
+
+      // Create the bar chart
+      Plotly.newPlot('chart1', [trace], layout);
+    });
 });
+
+
+
+
+
