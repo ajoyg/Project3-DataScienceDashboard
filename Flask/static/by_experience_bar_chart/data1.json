@@ -1,0 +1,527 @@
+[
+    {
+    "experience_level": "MI",
+    "job_title": "3D Computer Vision Researcher",
+    "salary": 5409
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Product Data Analyst",
+    "salary": 13036
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "ML Engineer",
+    "salary": 18974.5
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Data Analytics Engineer",
+    "salary": 20000
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "AI Scientist",
+    "salary": 21987.25
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Big Data Engineer",
+    "salary": 30703.33
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Applied Machine Learning Scientist",
+    "salary": 31875
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "BI Data Analyst",
+    "salary": 32136
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Head of Data",
+    "salary": 32974
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Big Data Engineer",
+    "salary": 33537
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Computer Vision Engineer",
+    "salary": 34302.33
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "NLP Engineer",
+    "salary": 37236
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Science Engineer",
+    "salary": 40189
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Lead Data Analyst",
+    "salary": 53304.5
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Data Analyst",
+    "salary": 53960.67
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Machine Learning Infrastructure Engineer",
+    "salary": 54217.5
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Computer Vision Engineer",
+    "salary": 54536.33
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "ETL Developer",
+    "salary": 54957
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "AI Scientist",
+    "salary": 55000
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Data Scientist",
+    "salary": 55330.91
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Lead Data Engineer",
+    "salary": 56000
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Data Engineer",
+    "salary": 58933.5
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Engineering Manager",
+    "salary": 59303
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Finance Data Analyst",
+    "salary": 61896
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Data Science Consultant",
+    "salary": 62640.8
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Analytics Engineer",
+    "salary": 64598.5
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Data Science Consultant",
+    "salary": 69741
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Analyst",
+    "salary": 71699.21
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Machine Learning Engineer",
+    "salary": 74466.58
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Business Data Analyst",
+    "salary": 74784.67
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Principal Data Analyst",
+    "salary": 75000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "BI Data Analyst",
+    "salary": 78086.33
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Machine Learning Developer",
+    "salary": 78791
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Machine Learning Developer",
+    "salary": 78791
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Head of Machine Learning",
+    "salary": 79039
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Business Data Analyst",
+    "salary": 79551
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Data Engineering Manager",
+    "salary": 79833
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Scientist",
+    "salary": 82039.13
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Engineer",
+    "salary": 85985.66
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Research Scientist",
+    "salary": 86132
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Machine Learning Engineer",
+    "salary": 86996.33
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Lead Machine Learning Engineer",
+    "salary": 87932
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Marketing Data Analyst",
+    "salary": 88654
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Research Scientist",
+    "salary": 88859.4
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Cloud Data Engineer",
+    "salary": 89294
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Science Engineer",
+    "salary": 93610.5
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Computer Vision Software Engineer",
+    "salary": 95746
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Big Data Architect",
+    "salary": 99703
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Financial Data Analyst",
+    "salary": 100000
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Machine Learning Developer",
+    "salary": 100000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Science Consultant",
+    "salary": 103000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Staff Data Scientist",
+    "salary": 105000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Applied Data Scientist",
+    "salary": 105619
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Machine Learning Scientist",
+    "salary": 109325
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Computer Vision Software Engineer",
+    "salary": 110000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Analytics Engineer",
+    "salary": 110000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Head of Data Science",
+    "salary": 110000
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Applied Data Scientist",
+    "salary": 110037
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Big Data Engineer",
+    "salary": 111535.5
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Analyst",
+    "salary": 111922.63
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Lead Data Scientist",
+    "salary": 115000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Lead Data Scientist",
+    "salary": 115285
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Machine Learning Manager",
+    "salary": 117104
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Lead Data Engineer",
+    "salary": 118187
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Data Analyst",
+    "salary": 120000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Analytics Manager",
+    "salary": 127134.29
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Machine Learning Engineer",
+    "salary": 131176
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Research Scientist",
+    "salary": 136498.14
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "ML Engineer",
+    "salary": 137025
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Engineer",
+    "salary": 137035.84
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Science Manager",
+    "salary": 149994.2
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "BI Data Analyst",
+    "salary": 150000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Principal Data Scientist",
+    "salary": 151000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Head of Data",
+    "salary": 151419.5
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Scientist",
+    "salary": 152971.02
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Analytics Engineer",
+    "salary": 155000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Director of Data Engineering",
+    "salary": 156738
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Head of Data Science",
+    "salary": 158958.33
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Engineering Manager",
+    "salary": 159000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Cloud Data Engineer",
+    "salary": 160000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "AI Scientist",
+    "salary": 160000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Specialist",
+    "salary": 165000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Lead Data Engineer",
+    "salary": 166040
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Architect",
+    "salary": 166666.67
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Director of Data Science",
+    "salary": 168000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Principal Data Analyst",
+    "salary": 170000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Lead Data Analyst",
+    "salary": 170000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Applied Machine Learning Scientist",
+    "salary": 178800
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Architect",
+    "salary": 182076.62
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Principal Data Scientist",
+    "salary": 187939.4
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Principal Data Engineer",
+    "salary": 192500
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Analytics Engineer",
+    "salary": 195000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Machine Learning Infrastructure Engineer",
+    "salary": 195000
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Director of Data Science",
+    "salary": 199586.33
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Data Science Manager",
+    "salary": 200000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Machine Learning Scientist",
+    "salary": 201666.67
+    },
+    {
+    "experience_level": "EN",
+    "job_title": "Machine Learning Scientist",
+    "salary": 225000
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Head of Data",
+    "salary": 232500
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Data Engineer",
+    "salary": 245500
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "ML Engineer",
+    "salary": 256000
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Applied Data Scientist",
+    "salary": 278500
+    },
+    {
+    "experience_level": "SE",
+    "job_title": "Data Analytics Lead",
+    "salary": 405000
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Principal Data Scientist",
+    "salary": 416000
+    },
+    {
+    "experience_level": "MI",
+    "job_title": "Financial Data Analyst",
+    "salary": 450000
+    },
+    {
+    "experience_level": "EX",
+    "job_title": "Principal Data Engineer",
+    "salary": 600000
+    }
+    ]
