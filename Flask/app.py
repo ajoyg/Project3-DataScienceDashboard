@@ -11,7 +11,6 @@ import psycopg2
 
 from flask import Flask, jsonify, render_template
 
-
 #################################################
 # Database Setup
 #################################################
@@ -23,7 +22,6 @@ engine = create_engine("postgresql+psycopg2://postgres:postgres@localhost:5432/D
 
 # # reflect the tables
 # Base.prepare(autoload_with=engine)
-
 # # Save references to each table
 # salaries = Base.classes.global_salaries
 # sector_list = Base.classes.sectors
@@ -36,7 +34,6 @@ engine = create_engine("postgresql+psycopg2://postgres:postgres@localhost:5432/D
 # Flask Setup
 #################################################
 app = Flask(__name__)
-
 
 
 #################################################
@@ -96,17 +93,16 @@ def bytitlechart():
 @app.route("/api/v1.0/byexperiencelevel")
 def experiencelevel():
 
-    session=Session(engine)
-    results = engine.execute("SELECT experience_level, AVG(salary_in_usd) AS average_salary FROM global_salaries GROUP BY experience_level")
-    session.close()
-    results_list= []
-    for experience, salary in results:
+   session=Session(engine)
+   results = engine.execute("SELECT experience_level, AVG(salary_in_usd) AS average_salary FROM global_salaries GROUP BY experience_level")
+   session.close()
+   results_list= []
+   for experience, salary in results:
         dict={}
         dict['experience_level']= experience
         dict['salary']= round(float(salary),2)
         results_list.append(dict)
-    return jsonify(results_list)
-
+        return jsonify(results_list)
 
 
 @app.route("/api/v1.0/byyear")
@@ -159,10 +155,10 @@ def bubblemap():
         dict['latitude']= latitude
         dict['longitude']= longitude
         results_list.append(dict)
-
-    return jsonify(results_list)
+        return jsonify(results_list)
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+

@@ -5,48 +5,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Data Science Jobs By Company Location</title>
- <!-- Bootstrap CSS -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
+  <title>Data Science Dashboard</title>
 
- 
-
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='css/style.css')}}">
+  <!-- Import the required Plotly library -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Import the custom CSS styles -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
+  <div id="bar-chart"></div>
 
-  
-  <div class="well"> 
-    <h5>Experience Level</h5>
-    <select name="selectExp" id="selExpLevel" onchange="optionChangedExp(this.value)">
-      {% for expVal in exp_job_data[0] %}
-      <option value="{{expVal}}">{{expVal}}</option>
-      {% endfor %}
-    </select>
-    <h5>Job Title</h5>
-    <select name="selectJob" id="selJobTitle" onchange="optionChangedJob(this.value)">
-    {% for jobVal in exp_job_data[1] %}
-    <option value="{{jobVal}}">{{jobVal}}</option>
-    {% endfor %}
-  </select>
-  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fetch the data from the API
+      fetch('/api/v1.0/byexperiencelevel')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
 
-<!-- The div that holds our map -->
-  <div id="map"></div>
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
-  <!-- D3 JavaScript -->
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <!-- Our JavaScript -->
-  <script type="text/javascript" src="{{url_for('static', filename='js/logic.js')}}"></script>
+          // Extract the required values for the chart
+          var experienceLevels = data.map(item => item.experience_level);
+          var salaries = data.map(item => item.ave_salary);
+
+          console.log(experienceLevels);
+          console.log(salaries);
+
+          // Define the bar chart trace
+          var trace = {
+            x: experienceLevels,
+            y: salaries,
+            type: 'bar'
+          };
+
+          // Define the bar chart layout
+          var layout = {
+            title: 'Average Salary by Experience Level',
+            xaxis: {
+              title: 'Experience Level',
+              categoryorder: 'array',
+              categoryarray: ['EX', 'SE', 'MI', 'EN']
+            },
+            yaxis: {
+              title: 'Average Salary'
+            }
+          };
+
+          // Create the bar chart
+          Plotly.newPlot('bar-chart', [trace], layout);
+        });
+    });
+  </script>
+
 </body>
 
 </html>
+
+
+
+
