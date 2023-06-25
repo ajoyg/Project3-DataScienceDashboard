@@ -92,17 +92,16 @@ def bytitlechart():
 
 @app.route("/api/v1.0/byexperiencelevel")
 def experiencelevel():
+    session = Session(engine)
 
-   session=Session(engine)
-   results = engine.execute("SELECT experience_level, AVG(salary_in_usd) AS average_salary FROM global_salaries GROUP BY experience_level")
-   session.close()
-   results_list= []
-   for experience, salary in results:
-        dict={}
-        dict['experience_level']= experience
-        dict['salary']= round(float(salary),2)
+    results = session.execute("SELECT experience_level, AVG(salary_in_usd) AS average_salary FROM global_salaries GROUP BY experience_level")
+
+    results_list = []
+    for experience, salary in results:
+        dict = {'experience_level': experience, 'ave_salary': round(float(salary), 2)}
         results_list.append(dict)
-        return jsonify(results_list)
+
+    return jsonify(results_list)
 
 
 @app.route("/api/v1.0/byyear")
