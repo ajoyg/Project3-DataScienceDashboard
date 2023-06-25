@@ -21,6 +21,10 @@ function makeBarChart(experienceFilter) {
         let experience= data.filter(value => value.experience_level === EXPlevel)
         console.log(EXPlevel)
         console.log(experience)
+        experience.sort(function compareFunction(firstNum, secondNum) {
+            // resulting order is (3, 2, 1)
+            return secondNum.salary - firstNum.salary;
+        }).reverse();
         
         let layout = {
             title: "Salary by Job Title and Experience"
