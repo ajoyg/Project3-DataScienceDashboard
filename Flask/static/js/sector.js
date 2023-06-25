@@ -36,6 +36,8 @@ d3.json(queryUrl).then(function(data){
     // Apply a title to the layout
     let layout = {
         title: "Top 20 Sectors for U.S. Data Science Jobs in 2021 (Percent of Data Jobs)",
+        width: 500,
+        height: 500,
         yaxis: { // removes tick labels on y-axis (too difficult to read as is)
             ticktext: [],
             tickvals: []
