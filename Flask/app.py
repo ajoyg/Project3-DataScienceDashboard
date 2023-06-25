@@ -43,7 +43,6 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     """List all available api routes."""
-    
     return(f"Available Routes:<br/>"
          f"/api/v1.0/bytitlechart<br/>"
          f"/api/v1.0/byexperiencelevel<br/>"
@@ -66,13 +65,12 @@ def getSalaryDashboard():
         print(experience)
         print(description)
         experience_list.append(exp_dict)
-        
-        
-    print(experience_list)
+              
+    #print(experience_list)
     job_title_list = [jobs_title[0] for jobs_title in results_job]
     data = [experience_list, job_title_list]
     
-    return render_template('SalaryDashboard.html', exp_job_data=data)
+    return render_template('SalaryDash.html', exp_job_data=data)
 
 @app.route("/api/v1.0/bytitlechart")
 def bytitlechart():
@@ -117,6 +115,7 @@ def yearchart():
         dict['year']= int(year)
         dict['country']= country
         results_list.append(dict)
+    
     return jsonify(results_list)
 
 
@@ -132,6 +131,7 @@ def countsector():
         dict['industry']= industry
         dict['count']= int(count)
         results_list.append(dict)
+    
     return jsonify(results_list)
 
 
@@ -154,7 +154,8 @@ def bubblemap():
         dict['latitude']= latitude
         dict['longitude']= longitude
         results_list.append(dict)
-        return jsonify(results_list)
+    
+    return jsonify(results_list)
 
 
 
