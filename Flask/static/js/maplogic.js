@@ -11,12 +11,12 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 
 let myMap = L.map("map", {
   center: [38.092, 30.352],
-  zoom: 1,
+  zoom: 2,
   layers: [mapLayers.worldMap, mapLayers.jobTitleLayer],
 });
 worldMap.addTo(myMap);
 drawMap(expOption.value,jobOption.value);
-//drawMap("MI","Data Engineer");
+
 
 
 function drawMap(exp,jobTitle) 
@@ -32,12 +32,12 @@ function drawMap(exp,jobTitle)
    // let cMarkerOld = new L.circleMarker();
     mapLayers.jobTitleLayer.clearLayers();
     //layerGroup.clearLayers();
-    
+    console.log(data);
     console.log(exp.toString());
     console.log(jobTitle.toString());  
   let selJobs = data.filter(job => job.job_title == jobTitle && job.experience == exp);
   //let selJobs = selJobsOnly.filter(exp => exp.experience == exp); 
-//
+  console.log("Length of Array"+selJobs.length)
 // Create a overlay layer containing the job info.
 let jobArray =[]
     for (let i = 0; i < selJobs.length; i++) 
@@ -49,13 +49,14 @@ let jobArray =[]
       let cMarker = L.circleMarker([lat, lng], {radius: avgSalary, color:"#000" , fillColor:'#69D025' , fillOpacity: 0.5, weight:0.5})
       .bindPopup(`Average Salary: ${selJobs[i].salary_currency}${selJobs[i].average_salary},  Experience: ${experience}`);
       jobArray.push(cMarker);
+      console.log("Adding circle marker")
     };
     L.layerGroup(jobArray).addTo(mapLayers.jobTitleLayer);
     //L.layerGroup(jobArray).addTo(myMap);
     // Trigger the Masonry layout once the map and markers are loaded
-      // myMap.whenReady(function () {
-      // msnry.layout();
-      // });
+      //  myMap.whenReady(function () {
+      //  msnry.layout();
+      //  });
   });
 };
 
