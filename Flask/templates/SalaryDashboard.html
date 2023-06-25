@@ -20,7 +20,9 @@
     <div class="container">
         <div class="grid-item">
             <h2>Average Salary By Experience Level</h2>
-            <div id="chart1" class="ExperienceLevel-bar"></div>
+            <h5>Experience Level:</h5>
+            <select id="experience" onchange="optionChanged(this.value)"></select>
+            <div id="bar_job_salary" class="ExperienceLevel-bar"></div>
         </div>
         <div class="grid-item">
             <h2>Average Salary By Year</h2>
@@ -96,3 +98,4 @@
 <script type="text/javascript" src="{{url_for('static', filename='js/maplogic.js')}}"></script>
 <script src="{{url_for('static', filename='js/sector.js')}}"></script>
 <script src="{{ url_for('static', filename='js/experience_level_logic.js') }}"></script>
+<script src="{{url_for('static', filename='js/job_salary_bar.js')}}"></script>

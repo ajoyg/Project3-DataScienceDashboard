@@ -35,8 +35,13 @@ function makeBarChart(experienceFilter) {
                 orientation: 'h'
             }
         ];
-        Plotly.newPlot("bar", barChartData, layout)
+        Plotly.newPlot("bar_job_salary", barChartData, layout)
         }
 )}
 
+makeBarChart()
+
+function optionChanged(newInput) {
+    makeBarChart(newInput);
+}
 
