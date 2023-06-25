@@ -85,6 +85,7 @@ def bytitlechart():
         dict['job_title']= job
         dict['experience_level']= experience
         results_list.append(dict)
+    
     return jsonify(results_list)
 
 

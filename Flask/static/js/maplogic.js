@@ -52,11 +52,7 @@ let jobArray =[]
       console.log("Adding circle marker")
     };
     L.layerGroup(jobArray).addTo(mapLayers.jobTitleLayer);
-    //L.layerGroup(jobArray).addTo(myMap);
-    // Trigger the Masonry layout once the map and markers are loaded
-      //  myMap.whenReady(function () {
-      //  msnry.layout();
-      //  });
+    
   });
 };
 
