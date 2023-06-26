@@ -27,7 +27,10 @@ function makeBarChart(experienceFilter) {
         }).reverse();
         
         let layout = {
-            title: "Salary by Job Title and Experience"
+            title: "Salary by Job Title and Experience",
+            yaxis: {
+                automargin: true
+            }
         };
           
 
