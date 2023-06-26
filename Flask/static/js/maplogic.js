@@ -43,11 +43,12 @@ let jobArray =[]
     for (let i = 0; i < selJobs.length; i++) 
     {
       let avgSalary = selJobs[i].salary_in_usd/5000;
-      let experience = selJobs[i].experience;
+      let remote_ratio = selJobs[i].remote_ratio;
       let lat = selJobs[i].latitude;
       let lng = selJobs[i].longitude;
+      let location = selJobs[i].company_location;
       let cMarker = L.circleMarker([lat, lng], {radius: avgSalary, color:"#000" , fillColor:'#69D025' , fillOpacity: 0.5, weight:0.5})
-      .bindPopup(`Average Salary: ${selJobs[i].salary_currency}${selJobs[i].average_salary},  Experience: ${experience}`);
+      .bindPopup(`Location: ${location}, Average Salary: ${selJobs[i].salary_currency}${selJobs[i].average_salary}, $${avgSalary*5000} in USD, upto ${remote_ratio}% remote work option`);
       jobArray.push(cMarker);
       console.log("Adding circle marker")
     };

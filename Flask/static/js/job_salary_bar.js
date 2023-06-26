@@ -1,8 +1,10 @@
 url="http://127.0.0.1:5000/api/v1.0/bytitlechart"
  
-let dropdown_list = ["EN", "MI", "SE", "EX"]
-let user_selection = d3.select("#experience").selectAll('myOptions').data(dropdown_list).enter().append('option').text(function (d) { return d; }).attr("value", function (d) { return d; });
-console.log("selection", user_selection.value)
+//let dropdown_list = ["EN", "MI", "SE", "EX"]
+//let user_selection = d3.select("#experience").selectAll('myOptions').data(dropdown_list).enter().append('option')
+//.text(function (d) { return d; }).attr("value", function (d) { return d; });
+//console.log("selection", user_selection.value)
+let expLevel = document.getElementById("experience").value;
 
 
 function makeBarChart(experienceFilter) {
@@ -27,7 +29,7 @@ function makeBarChart(experienceFilter) {
         }).reverse();
         
         let layout = {
-            title: "Salary by Job Title and Experience"
+            title: "Salary by Job Title and Experience",
         };
           
 
@@ -39,7 +41,7 @@ function makeBarChart(experienceFilter) {
                 orientation: 'h'
             }
         ];
-        Plotly.newPlot("chart1", barChartData, layout)
+        Plotly.newPlot("chart3", barChartData, layout)
     }
 )}
 
@@ -47,5 +49,6 @@ function optionChangedBar(newInput) {
     makeBarChart(newInput);
 }
 
-makeBarChart()
+console.log(expLevel);
+makeBarChart(expLevel);
 
