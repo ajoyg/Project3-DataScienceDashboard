@@ -30,6 +30,9 @@ function makeBarChart(experienceFilter) {
         
         let layout = {
             title: "Salary by Job Title and Experience",
+            yaxis: {
+                automargin: true
+            }
         };
           
 
