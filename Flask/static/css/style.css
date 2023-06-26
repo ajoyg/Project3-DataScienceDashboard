@@ -21,7 +21,7 @@ main {
  * { box-sizing: border-box;}
 
   body { font-family: sans-serif; }
-  footer { height: 100px;}
+  footer { height: 50px;}
   
   .jumbotron {
     background-color: rgba(108, 5, 131, 0.984);
@@ -29,15 +29,12 @@ main {
   }
   /* ---- grid ---- */
   
-  /*
+  
   .container {
     background: #c2d2f3;
-    position: relative;
     width: 75%;
-    display: flex;
-    gap: 10px;
   }
-  
+  /*
   /* clearfix 
   .container:after {
     content: '';
@@ -81,11 +78,11 @@ main {
   width: 30%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
   color: #fafafc;
-  background-color: #083ff5d0;
+  background-color: #1c3179e8;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
@@ -94,8 +91,8 @@ main {
 
 /* Apply styles when the select element receives focus */
 .form-control:focus {
-  color: #0b1053;
-  background-color: #fff;
+  color: #fafafc;
+  background-color: #1c3179e8;
   border-color: #303db3;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
@@ -103,7 +100,7 @@ main {
 
 /* Apply styles when the select element is disabled */
 .form-control:disabled {
-  background-color: #e9ecef;
+  background-color: #1c3179e8;
   opacity: 1;
 }
 

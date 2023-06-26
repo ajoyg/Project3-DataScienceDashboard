@@ -55,7 +55,7 @@ def welcome():
 def getSalaryDashboard():
     session=Session(engine)
     results_exp = engine.execute('SELECT  experience_level, description FROM experience_levels order by experience_rank')
-    results_job = engine.execute('SELECT job_title FROM job_titles order by job_rank, job_title')
+    results_job = engine.execute('SELECT job_title FROM job_titles order by job_rank')
     session.close()
     
     exp_dict = {}
@@ -140,11 +140,11 @@ def countsector():
 def bubblemap():
 
     session=Session(engine)
-    results = engine.execute('SELECT experience_level, job_title, avg(salary), salary_currency,avg(salary_in_usd), company_location, avg(latitude), avg(longitude) FROM global_salaries where work_year=2022 GROUP BY experience_level, job_title, company_location, salary_currency')
+    results = engine.execute('SELECT experience_level, job_title, avg(salary), salary_currency,avg(salary_in_usd), company_location, avg(latitude), avg(longitude), max(remote_ratio) FROM global_salaries where work_year=2022 GROUP BY experience_level, job_title, company_location, salary_currency')
     session.close()
 
     results_list=[]
-    for experience, job, salary, currency, usd, location, latitude, longitude in results:
+    for experience, job, salary, currency, usd, location, latitude, longitude, remote_ratio in results:
         dict={}
         dict['experience']= experience
         dict['job_title']= job
@@ -154,6 +154,7 @@ def bubblemap():
         dict['company_location']= location
         dict['latitude']= latitude
         dict['longitude']= longitude
+        dict['remote_ratio'] = remote_ratio
         results_list.append(dict)
     
     return jsonify(results_list)

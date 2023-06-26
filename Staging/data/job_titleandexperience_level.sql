@@ -1,9 +1,11 @@
 select distinct experience_level from global_salaries;
+drop table if exists experience_levels;
 create table experience_levels (
 experience_level VARCHAR NOT NULL,
 experience_rank int,
 description VARCHAR NOT NULL
 );
+delete from experience_levels;
 insert into experience_levels (experience_level, experience_rank, description)
 VALUES
 ('EN', 1, 'Entry Level'),
@@ -13,10 +15,13 @@ VALUES
 
 select * from experience_levels;
 
+drop table if exists jot_titles;
 create table job_titles (
 job_title VARCHAR NOT NULL,
 job_rank int
 );
+
+delete from job_titles;
 insert into job_titles VALUES
 ('Machine Learning Infrastructure Engineer',1),
 ('Machine Learning Engineer',1),
@@ -69,3 +74,8 @@ insert into job_titles VALUES
 ('Business Data Analyst',1),
 ('Machine Learning Developer',1);
 select * from job_titles;
+
+delete from job_titles where job_title in ( select distinct job_title from global_salaries where work_year in (2020,2021,2022)
+and job_title not in 
+(select distinct job_title from global_salaries where work_year = 2022)
+);
