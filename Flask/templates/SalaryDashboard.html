@@ -29,8 +29,7 @@
         </div>
         <div class="grid-item grid-item--width2 grid-item--height3">
             <h2>Average Salary By Year</h2>
-            <select id="selCountry" onchange="optionChanged(this.value)"></select>
-            
+            <select id="conSel" onchange="optionChanged(this.value)"></select>
             <div id="chart2" class="AvGSalaryline"></div>
         </div>
         <div class="grid-item">
@@ -87,6 +86,7 @@
 <script src="{{url_for('static', filename='js/sector.js')}}"></script>
 <script src="{{ url_for('static', filename='js/experience_level_logic.js') }}"></script>
 <script src="{{url_for('static', filename='js/job_salary_bar.js')}}"></script>
+<script src="{{url_for('static', filename='js/line_year_salary.js')}}"></script>
 
 <!-- initialize Masonry layout - this should arrange each chart based on the available space on the grid -->
 <script>
