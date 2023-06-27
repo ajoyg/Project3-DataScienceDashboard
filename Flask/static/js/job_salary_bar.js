@@ -24,7 +24,6 @@ function makeBarChart(experienceFilter) {
         console.log(EXPlevel)
         console.log(experience)
         experience.sort(function compareFunction(firstNum, secondNum) {
-            // resulting order is (3, 2, 1)
             return secondNum.salary - firstNum.salary;
         }).reverse();
         
@@ -41,7 +40,10 @@ function makeBarChart(experienceFilter) {
                 x: experience.map(value => value.salary),
                 y: experience.map(value => value.job_title),
                 type: "bar",
-                orientation: 'h'
+                orientation: 'h',
+                marker:{
+                    color:'#E37383'
+                }
             }
         ];
         Plotly.newPlot("chart3", barChartData, layout)
