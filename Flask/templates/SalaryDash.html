@@ -51,7 +51,7 @@
             <div class="col-md-6">
                 <h2>Count by Sector</h2>
                  <!-- BR: The div that holds the sector plot -->
-                <div id="plot" class="sector-bar"></div>   
+                 <div id="chart4" style="width: 600px;height:400px;"></div>
             </div>
         </div>
         <div class="row">
@@ -98,8 +98,10 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <!-- Plotly JavaScript -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- eCharts JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
 <!-- Our JavaScript -->
 <script type="text/javascript" src="{{url_for('static', filename='js/maplogic.js')}}"></script>
-<script src="{{url_for('static', filename='js/sector.js')}}"></script>
+<script src="{{url_for('static', filename='js/sector_pie.js')}}"></script>
 <script src="{{ url_for('static', filename='js/experience_level_logic.js') }}"></script>
 <script src="{{url_for('static', filename='js/job_salary_bar.js')}}"></script>
