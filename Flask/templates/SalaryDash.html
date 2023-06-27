@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 <head>
     <title>Data Science Dashboard</title>
-        <!--- Leaflet CSS --->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    <!--- Leaflet CSS --->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-        <!--- Our CSS --->
-        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='css/style.css')}}">
-    
+    <!--- Our CSS --->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='css/style.css')}}">
+
 </head>
+
 <body>
     <div class="container">
         <div class="row">
-          <div class="col-md-12 jumbotron text-center">
-            <h1>Data Science Jobs and Salaries</h1>
-          </div>
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Data Science Jobs and Salaries</h1>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -31,51 +33,61 @@
             <div class="col-md-6">
                 <h2>Average Yearly Salary by Country</h2>
                 <div class="form group">
-                <h5>Country</h5>
-                <select class = "form-control" id="country" onchange="optionChangedLine(this.value)">
-                    {% for conCode in exp_job_data[2] %}
-                    <option value="{{conCode}}">{{conCode}}</option>
-                {% endfor %}
-                </select> 
-                </div> 
-                <div id="chart2" class="yearlysalary-line"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Average Salary by Job Title</h2>
-                    <div class="form group">
-                    <h5>Experience Level</h5>
-                    <select class = "form-control" id="experience" onchange="optionChangedBar(this.value)">
-                        {% for expDict in exp_job_data[0] %}
-                            {% for expKey, expVal in expDict.items() %}
-                                <option value="{{expKey}}">{{expVal}}</option>
-                            {% endfor %}
-                        {% endfor %}
-                    </select>
+                    <div id="chart2" class="yearlysalary-line"></div>
+                    <div class="row">
+                        <div class="col-md-2"><h5> Select Country</h5></div> 
+                        <div class="col-md-4">
+                            <select class="form-control" id="country" onchange="optionChangedLine(this.value)">
+                                {% for conCode in exp_job_data[2] %}
+                                <option value="{{conCode}}">{{conCode}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div id="chart3" class="jobtitle-bar"></div>
+                
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Average Salary by Job Title</h2>
+                <div class="form group">
+                    <div id="chart3" class="jobtitle-bar"></div>
+                    <div class="row">
+                        <div class="col-md-2"><h5>Experience Level</h5></div> 
+                        <div class="col-md-4">
+                            <select class="form-control" id="experience" onchange="optionChangedBar(this.value)">
+                                {% for expDict in exp_job_data[0] %}
+                                    {% for expKey, expVal in expDict.items() %}
+                                        <option value="{{expKey}}">{{expVal}}</option>
+                                    {% endfor %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>        
             <div class="col-md-6">
                 <h2>Top 10 Sectors for Data Jobs</h2>
-                 <div id="chart4" style="width: 600px;height:400px;"></div>
+                <div id="chart4" style="width: 826px;height:450px;"></div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <h2>Company Location</h2>
-                <div class="form-group"> 
+                <div class="form-group">
                     <h4>Experience Level</h4>
                     <select class="form-control" id="selExpLevel" onchange="optionChangedExp(this.value)">
                         {% for expDict in exp_job_data[0] %}
-                            {% for expKey, expVal in expDict.items() %}
-                                <option value="{{expKey}}">{{expVal}}</option>
-                            {% endfor %}
+                        {% for expKey, expVal in expDict.items() %}
+                        <option value="{{expKey}}">{{expVal}}</option>
+                        {% endfor %}
                         {% endfor %}
                     </select>
                     <h4>Job Title</h4>
                     <select class="form-control" id="selJobTitle" onchange="optionChangedJob(this.value)">
                         {% for jobVal in exp_job_data[1] %}
-                            <option value="{{jobVal}}">{{jobVal}}</option>
+                        <option value="{{jobVal}}">{{jobVal}}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -85,12 +97,12 @@
                 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
                     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
                     crossorigin="">
-                </script>   
+                    </script>
+            </div>
         </div>
-    </div>
-</body> 
-<footer></footer> 
-<!-- JQuery and Popper.js --> 
+</body>
+<footer></footer>
+<!-- JQuery and Popper.js -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

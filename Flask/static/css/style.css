@@ -34,6 +34,12 @@ main {
     background: #c2d2f3;
     width: 90%;
   }
+
+
+  #chart4 canvas 
+  {
+    background-color: #f6f8fa;
+  }
   /*
   /* clearfix 
   .container:after {
