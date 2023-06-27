@@ -19,13 +19,24 @@ d3.json(queryUrl).then(function(data){
         topSectorTotal += sect.count});
     
     console.log("top sector total counts", topSectorTotal)
-
+    
+    // Determining how many 'Other' sectors there are in the dataset.
     let everythingElse = totalSector - topSectorTotal
 
     console.log("other:", everythingElse)
 
-    // // Shouldn't need to reverse this array any longer. 
-    // dataSliced.reverse()
+    // Renaming the data to be used in the pie chart so it can be used directly in the eChart parameters. 
+    let renamedData = dataSliced.map(function(obj) {
+      return {
+        value: obj.count,
+        name: obj.industry
+      };
+    });
+
+    renamedData.push({value: 240, name: 'Other'})
+
+    console.log("Is this better?", renamedData)
+
 
     
     // Trying out the Nightingale Chart here...
@@ -35,9 +46,9 @@ d3.json(queryUrl).then(function(data){
     var option;
 
     option = {
-        legend: {
-          top: 'bottom'
-        },
+        // legend: {
+        //   top: 'bottom'
+        // },
         toolbox: {
           show: true,
           feature: {
@@ -49,67 +60,37 @@ d3.json(queryUrl).then(function(data){
         },
         series: [
           {
-            name: 'NEED TO UPDATE',
+            name: 'Top 10 Sectors for Data Jobs',
             type: 'pie',
-            radius: [50, 250],
+            radius: [50, 150],
             center: ['50%', '50%'],
             roseType: 'area',
             itemStyle: {
-              borderRadius: 1
-            },
-            data: [
-              { value: 66, name: 'Biotech & Pharma' },
-              { value: 56, name: 'IT Services' },
-              { value: 55, name: 'Computer Hardware & Software' },
-              { value: 45, name: 'Aerospace & Defense' },
-              { value: 39, name: 'Enterprise Software' },
-              { value: 38, name: 'Consulting' },
-              { value: 35, name: 'Staffing & Outsourcing' },
-              { value: 28, name: 'Insurance Carriers' },
-              { value: 23, name: 'Advertising & Marketing' },
-              { value: 23, name: 'Internet' },
-              { value: 240, name: 'Other' }
-            ]
+              borderRadius: 1,
+          },
+            // tooltip: {
+            //   show: true,
+            //   trigger: 'item',
+            //   formatter: '{b}: {c}'
+            // },
+            // data: [
+            //   { value: 66, name: 'Biotech & Pharma' },
+            //   { value: 56, name: 'IT Services' },
+            //   { value: 55, name: 'Computer Hardware & Software' },
+            //   { value: 45, name: 'Aerospace & Defense' },
+            //   { value: 39, name: 'Enterprise Software' },
+            //   { value: 38, name: 'Consulting' },
+            //   { value: 35, name: 'Staffing & Outsourcing' },
+            //   { value: 28, name: 'Insurance Carriers' },
+            //   { value: 23, name: 'Advertising & Marketing' },
+            //   { value: 23, name: 'Internet' },
+            //   { value: 240, name: 'Other' }
+            // ]
+            data: renamedData
           }
         ]
       };
     
     option && myChart.setOption(option);
-
-
-
-    // const xValues = dataSliced.map(sect => ((sect.count/totalSector)*100))
-    // const yValues = dataSliced.map(sect => sect.industry)
-
-    // // Trace for the sector data
-    // let trace = {
-    // x: xValues,
-    // y: yValues,
-    // type: "bar",
-    // orientation: "h",
-    // hovertext: yValues,
-    // // hoverinfo: 'text'
-    // }
-
-    // // Data array
-    // let myData = [trace];
-
-    // // Apply a title to the layout
-    // let layout = {
-    //     title: "Top 20 Sectors for U.S. Data Jobs in 2021 <br> (Percent of Data Jobs)",
-    //     width: 500,
-    //     height: 500,
-    //     xaxis: {
-    //         title: "Percent of Data Jobs"
-    //     },
-    //     yaxis: { // removes tick labels on y-axis (too difficult to read as is)
-    //         title: "Sector",
-    //         ticktext: [],
-    //         tickvals: []
-    //     }
-    // }
-
-    // // Render the plot to the div tag with id "plot"
-    // Plotly.newPlot("chart4",myData,layout)    
 
 });
