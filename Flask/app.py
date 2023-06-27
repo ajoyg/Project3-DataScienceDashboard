@@ -15,7 +15,7 @@ from flask import Flask, jsonify, render_template
 # Database Setup
 #################################################
 # engine = create_engine('postgresql+psycopg2://brandon_reed_srg:postgres@localhost:5342/Salaries')
-engine = create_engine("postgresql+psycopg2://postgres:postgres@localhost:5432/DataScience_Jobs")
+engine = create_engine("postgresql+psycopg2://postgres:Phialpha_1856@localhost:5432/project3_db")
 
 # reflect an existing database into a new model
 # Base = automap_base()
@@ -56,6 +56,7 @@ def getSalaryDashboard():
     session=Session(engine)
     results_exp = engine.execute('SELECT  experience_level, description FROM experience_levels order by experience_rank')
     results_job = engine.execute('SELECT job_title FROM job_titles order by job_rank')
+    results_countries = engine.execute('SELECT distinct company_location from global_salaries order by company_location')
     session.close()
     
     exp_dict = {}
@@ -68,7 +69,8 @@ def getSalaryDashboard():
               
     #print(experience_list)
     job_title_list = [jobs_title[0] for jobs_title in results_job]
-    data = [experience_list, job_title_list]
+    country_list = [companyLocation[0] for companyLocation in results_countries]
+    data = [experience_list, job_title_list, country_list]
     
     return render_template('SalaryDash.html', exp_job_data=data)
 
@@ -107,7 +109,7 @@ def experiencelevel():
 def yearchart():
 
     session=Session(engine)
-    results = engine.execute("SELECT avg(salary_in_usd), work_year, employee_residence FROM global_salaries GROUP BY work_year, employee_residence")
+    results = engine.execute("SELECT avg(salary_in_usd), work_year, company_location FROM global_salaries GROUP BY work_year, company_location ORDER BY work_year")
     session.close()
     results_list= []
     for salary, year, country in results:
