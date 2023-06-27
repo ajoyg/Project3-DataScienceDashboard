@@ -39,6 +39,8 @@ function drawMap(exp,jobTitle, expChange)
   //   let jobByExp = data.filter(job => job.experience == exp);
   //   let uniqueJobs = [...new Set(jobByExp.map((item) => item.job_title))];
   //   console.log(uniqueJobs);
+  //   d3.selectAll("#selJobTitle").remove()
+  
   //   d3.select("#selJobTitle")
   //     .selectAll('myOptions')
   //    	.data(uniqueJobs)
