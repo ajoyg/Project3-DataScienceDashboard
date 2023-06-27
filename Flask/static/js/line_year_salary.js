@@ -19,6 +19,16 @@ function makeLineChart(countryFilter) {
         
         let layout = {
             title: "Average Yearly Salary in USD",
+            xaxis: {
+                autotick: false,
+                ticks: 'inside',
+                tick0: 0,
+                dtick: 1,
+                ticklen: 3,
+                tickwidth: 4,
+                tickcolor: 'white'
+              },
+            
             yaxis: {
                 automargin: true
             }
