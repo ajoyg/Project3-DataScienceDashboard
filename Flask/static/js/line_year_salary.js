@@ -29,7 +29,7 @@ function makeLineChart(countryFilter) {
                 tickwidth: 4,
                 tickcolor: 'white'
               },
-            
+            width: 820,
             yaxis: {
                 title: 'Yearly Salary (USD)',
                 automargin: true
