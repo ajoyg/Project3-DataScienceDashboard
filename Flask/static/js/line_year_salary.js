@@ -8,14 +8,14 @@ function makeLineChart(countryFilter) {
         console.log(data)
 
         let years= data.map(salaryData =>salaryData.year)
-        console.log("years", years)
+       // console.log("years", years)
         let salaries= data.map(salaryData =>salaryData.salary)
-        console.log("salaries", salaries)
+     //   console.log("salaries", salaries)
         let countries=data.map(salaryData =>salaryData.country)
-        console.log(countries)
+     //   console.log(countries)
 
         let country= data.filter(value => value.country === countryFilter).reverse()
-        console.log(country)
+     //   console.log(country)
         
         let layout = {
             title: "Average Yearly Salary",
@@ -29,7 +29,7 @@ function makeLineChart(countryFilter) {
                 tickwidth: 4,
                 tickcolor: 'white'
               },
-            width: 820,
+            //width: 820,
             yaxis: {
                 title: 'Yearly Salary (USD)',
                 automargin: true
@@ -38,7 +38,7 @@ function makeLineChart(countryFilter) {
           
         let test = country.map(salaryData => salaryData.year)
         let test2 = country.map(salaryData => salaryData.salary)
-        console.log(test, test2)
+     //   console.log(test, test2)
         let lineChartData = [
             {       
                 x: country.map(salaryData => salaryData.year),

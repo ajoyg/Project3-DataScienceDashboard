@@ -40,6 +40,9 @@ main {
   {
     background-color: #f6f8fa;
   }
+  #chart1, #chart2, #chart3, #chart4 {
+    width:100%
+  }
   /*
   /* clearfix 
   .container:after {
@@ -84,7 +87,7 @@ main {
   width: 30%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #fafafc;
@@ -110,6 +113,9 @@ main {
   opacity: 1;
 }
 
+#experience {
+   width: 60%;
+}
 
 
 

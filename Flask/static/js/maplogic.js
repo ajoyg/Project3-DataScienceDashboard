@@ -15,11 +15,11 @@ let myMap = L.map("map", {
   layers: [mapLayers.worldMap, mapLayers.jobTitleLayer],
 });
 worldMap.addTo(myMap);
-drawMap(expOption.value,jobOption.value,true);
+drawMap(expOption.value,jobOption.value);
 
 
 
-function drawMap(exp,jobTitle, expChange) 
+function drawMap(exp,jobTitle) 
 {
   // Store our API endpoint as queryUrl.
   let queryUrl = "http://127.0.0.1:5000/api/v1.0/bubblemap"
@@ -27,19 +27,18 @@ function drawMap(exp,jobTitle, expChange)
   // Perform a GET request to the query URL/
   d3.json(queryUrl).then(function (data) {
     // Once we get a response, send the data.features object to the createFeatures function.
-    // createFeatures(data.features);
     
-   // let cMarkerOld = new L.circleMarker();
+    //Clear the previous  job title layer
     mapLayers.jobTitleLayer.clearLayers();
-    //layerGroup.clearLayers(); 
+    
   let selJobs = data.filter(job => job.job_title == jobTitle && job.experience == exp);
-  // console.log("ExpChange"+expChange);
-  // if (expChange == true) 
+  //  console.log("ExpChange"+expChange);
+  //  if (expChange == true) 
   // {
   //   let jobByExp = data.filter(job => job.experience == exp);
   //   let uniqueJobs = [...new Set(jobByExp.map((item) => item.job_title))];
   //   console.log(uniqueJobs);
-  //   d3.selectAll("#selJobTitle").remove()
+  //   d3.selectAll("#selJobTitle").remove();
   
   //   d3.select("#selJobTitle")
   //     .selectAll('myOptions')
@@ -50,19 +49,11 @@ function drawMap(exp,jobTitle, expChange)
   //     .attr("value", function (d) { return d; }) // corresponding value returned by the button
     
   // };
-  //   d3.select("#selJobTitle")
-  //     .selectAll('myOptions')
-  //    	.data(jobTitleArray)
-  //     .enter()
-  //     .text(function (d) { return d; }) // text showed in the menu
-  //     .attr("value", function (d) { return d; }) // corresponding value returned by the button
-  // }  
-  //let selJobs = selJobsOnly.filter(exp => exp.experience == exp); 
+  
   
 
 // Create a overlay layer containing the job info.
   let jobArray =[];
-  
 
     for (let i = 0; i < selJobs.length; i++) 
     {
@@ -88,44 +79,14 @@ function optionChangedExp(newExp)
 {
   let jobOption = document.getElementById("selJobTitle");
   let title = jobOption.value;
-  drawMap(newExp,title, true)
+  drawMap(newExp,title)
 };
 function optionChangedJob(newJob)
 {
   let expOption = document.getElementById("selExpLevel");
   let level = expOption.value;
  
-  drawMap(level,newJob, false)
+  drawMap(level,newJob)
 };
-// Add a legend to the map.
-// let legend = L.control({position: "bottomright"});
 
-// //Create a function to show the range colors for the density intervals in the legend.
-// function getColor(d) {
-//   return d > 90 ? '#780000' :
-//          d > 70  ? '#EF233C' :
-//          d > 50  ? '#FF006E' :
-//          d > 30  ? '#FFC247' :
-//          d > 10   ? '#B5DD7E' :
-//          d > -10   ? '#69D025' :
-//                     '#FFEDA0';}  
-
-// // Create the legend table and add it to the map.
-// legend.onAdd = function (map) 
-// {
-//     let div = L.DomUtil.create('div', 'info legend');
-//     grades = [-10,10,30,50,70,90];
-    
-
-//     // loop through our density intervals and generate a label with a colored square for each interval
-//     for (let i = 0; i < grades.length; i++) 
-//     {
-//         div.innerHTML +=
-//             '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-//             grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-        
-//     };
-//     return div;
-// };
-// legend.addTo(myMap);
 
