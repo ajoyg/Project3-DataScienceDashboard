@@ -24,7 +24,7 @@ main {
   footer { height: 50px;}
   
   .jumbotron {
-    background-color: rgba(108, 5, 131, 0.984);
+    background-color: #392F5A;
     color: white;
   }
   /* ---- grid ---- */
