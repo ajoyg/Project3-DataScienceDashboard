@@ -15,5 +15,12 @@ https://www.kaggle.com
 https://www.kaggle.com/datasets/rashikrahmanpritom/data-science-job-posting-on-glassdoor?select=Uncleaned_DS_jobs.csv
 
 ### Data Science Salary Dashboard
+The dashboard has the following charts:
+1. Average salary in US dollars by experience level (EN- Entry Level, MI- Mid Level, SE- Senior Level, EX - Executive). The data is aggregated from 2020 to 2022 across all countries and job titles.
+2. Average salary by country from 2020 to 2022, filtered by country.
+3. Average salary by job title from 2020 to 2022, filtered by experience level.
+4. Top 10 sectors for data science jobs
+5. Average salary in 2022 by comapny location filtered by experience level and job title.
 
+![Dashboard](https://github.com/ajoyg/Project3-DataScienceDashboard/blob/main/images/DataScienceSalaryDashboard.jpg)
 
