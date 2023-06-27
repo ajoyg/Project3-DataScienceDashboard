@@ -142,7 +142,7 @@ def countsector():
 def bubblemap():
 
     session=Session(engine)
-    results = engine.execute('SELECT experience_level, job_title, avg(salary), salary_currency,avg(salary_in_usd), company_location, avg(latitude), avg(longitude), max(remote_ratio) FROM global_salaries where work_year=2022 GROUP BY experience_level, job_title, company_location, salary_currency')
+    results = engine.execute('SELECT experience_level, job_title, avg(salary), salary_currency,avg(salary_in_usd), company_location, avg(latitude), avg(longitude), max(remote_ratio) FROM global_salaries where work_year = 2022 GROUP BY experience_level, job_title, company_location, salary_currency')
     session.close()
 
     results_list=[]

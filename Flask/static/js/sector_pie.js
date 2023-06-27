@@ -7,12 +7,12 @@ d3.json(queryUrl).then(function(data){
     totalCount = data.map(sect => {
         totalSector += sect.count});
 
-    console.log("total counts", totalSector)
+    //console.log("total counts", totalSector)
 
     // Skipping the first record because it's a catch-all in the data (i.e., there's no sector; it just says "-1").
     let dataSliced = data.slice(1,11);
 
-    console.log("pie", dataSliced)
+   // console.log("pie", dataSliced)
     
     let topSectorTotal = 0
     let topSectorCount = dataSliced.map(sect => {
@@ -23,7 +23,7 @@ d3.json(queryUrl).then(function(data){
     // Determining how many 'Other' sectors there are in the dataset.
     let everythingElse = totalSector - topSectorTotal
 
-    console.log("other:", everythingElse)
+   // console.log("other:", everythingElse)
 
     // Renaming the data to be used in the pie chart so it can be used directly in the eChart parameters. 
     let renamedData = dataSliced.map(function(obj) {
@@ -35,7 +35,7 @@ d3.json(queryUrl).then(function(data){
 
     renamedData.push({value: 240, name: 'Other'})
 
-    console.log("Is this better?", renamedData)
+   // console.log("Is this better?", renamedData)
 
 
     

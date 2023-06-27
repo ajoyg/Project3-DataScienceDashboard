@@ -54,8 +54,8 @@
                 <div class="form group">
                     <div id="chart3" class="jobtitle-bar"></div>
                     <div class="row">
-                        <div class="col-md-2"><h5>Experience Level</h5></div> 
-                        <div class="col-md-4">
+                        <div class="col-md-3"><h5>Experience Level</h5></div> 
+                        <div class="col-md-3">
                             <select class="form-control" id="experience" onchange="optionChangedBar(this.value)">
                                 {% for expDict in exp_job_data[0] %}
                                     {% for expKey, expVal in expDict.items() %}
@@ -69,14 +69,14 @@
             </div>        
             <div class="col-md-6">
                 <h2>Top 10 Sectors for Data Jobs</h2>
-                <div id="chart4" style="width: 826px;height:450px;"></div>
+                <div id="chart4" style="width:100%;height:450px"></div>  <!-- style="width: 826px;height:450px;" -->
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h2>Company Location</h2>
+                <h2>Average Salary By Company Location in 2022</h2>
                 <div class="form-group">
-                    <h4>Experience Level</h4>
+                    <h5>Experience Level</h5>
                     <select class="form-control" id="selExpLevel" onchange="optionChangedExp(this.value)">
                         {% for expDict in exp_job_data[0] %}
                         {% for expKey, expVal in expDict.items() %}
@@ -84,7 +84,7 @@
                         {% endfor %}
                         {% endfor %}
                     </select>
-                    <h4>Job Title</h4>
+                    <h5>Job Title</h5>
                     <select class="form-control" id="selJobTitle" onchange="optionChangedJob(this.value)">
                         {% for jobVal in exp_job_data[1] %}
                         <option value="{{jobVal}}">{{jobVal}}</option>
@@ -102,22 +102,15 @@
         </div>
 </body>
 <footer></footer>
-<!-- JQuery and Popper.js -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<!-- Bootstrap.js -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!--
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
- Bootstrap.js
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
--->
 <!-- D3 JavaScript -->
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <!-- Plotly JavaScript -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <!-- eCharts JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+
 <!-- Our JavaScript -->
 <script type="text/javascript" src="{{url_for('static', filename='js/maplogic.js')}}"></script>
 <script src="{{url_for('static', filename='js/sector_pie.js')}}"></script>
