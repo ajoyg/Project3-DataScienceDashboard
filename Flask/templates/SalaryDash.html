@@ -65,7 +65,7 @@
             <div class="col-md-12">
                 <h2>Company Location</h2>
                 <div class="form-group"> 
-                    <h5>Experience Level</h5>
+                    <h4>Experience Level</h4>
                     <select class="form-control" id="selExpLevel" onchange="optionChangedExp(this.value)">
                         {% for expDict in exp_job_data[0] %}
                             {% for expKey, expVal in expDict.items() %}
@@ -73,7 +73,7 @@
                             {% endfor %}
                         {% endfor %}
                     </select>
-                    <h5>Job Title</h5>
+                    <h4>Job Title</h4>
                     <select class="form-control" id="selJobTitle" onchange="optionChangedJob(this.value)">
                         {% for jobVal in exp_job_data[1] %}
                             <option value="{{jobVal}}">{{jobVal}}</option>

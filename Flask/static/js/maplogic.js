@@ -15,11 +15,11 @@ let myMap = L.map("map", {
   layers: [mapLayers.worldMap, mapLayers.jobTitleLayer],
 });
 worldMap.addTo(myMap);
-drawMap(expOption.value,jobOption.value);
+drawMap(expOption.value,jobOption.value,true);
 
 
 
-function drawMap(exp,jobTitle) 
+function drawMap(exp,jobTitle, expChange) 
 {
   // Store our API endpoint as queryUrl.
   let queryUrl = "http://127.0.0.1:5000/api/v1.0/bubblemap"
@@ -31,27 +31,54 @@ function drawMap(exp,jobTitle)
     
    // let cMarkerOld = new L.circleMarker();
     mapLayers.jobTitleLayer.clearLayers();
-    //layerGroup.clearLayers();
-    console.log(data);
-    console.log(exp.toString());
-    console.log(jobTitle.toString());  
+    //layerGroup.clearLayers(); 
   let selJobs = data.filter(job => job.job_title == jobTitle && job.experience == exp);
+  // console.log("ExpChange"+expChange);
+  // if (expChange == true) 
+  // {
+  //   let jobByExp = data.filter(job => job.experience == exp);
+  //   let uniqueJobs = [...new Set(jobByExp.map((item) => item.job_title))];
+  //   console.log(uniqueJobs);
+  //   d3.selectAll("#selJobTitle").remove()
+  
+  //   d3.select("#selJobTitle")
+  //     .selectAll('myOptions')
+  //    	.data(uniqueJobs)
+  //     .enter()
+  //     .append('option')
+  //     .text(function (d) { return d; }) // text showed in the menu
+  //     .attr("value", function (d) { return d; }) // corresponding value returned by the button
+    
+  // };
+  //   d3.select("#selJobTitle")
+  //     .selectAll('myOptions')
+  //    	.data(jobTitleArray)
+  //     .enter()
+  //     .text(function (d) { return d; }) // text showed in the menu
+  //     .attr("value", function (d) { return d; }) // corresponding value returned by the button
+  // }  
   //let selJobs = selJobsOnly.filter(exp => exp.experience == exp); 
-  console.log("Length of Array"+selJobs.length)
+  
+
 // Create a overlay layer containing the job info.
-let jobArray =[]
+  let jobArray =[];
+  
+
     for (let i = 0; i < selJobs.length; i++) 
     {
       let avgSalary = selJobs[i].salary_in_usd/5000;
+      let experience = selJobs[i].experience;
+      
       let remote_ratio = selJobs[i].remote_ratio;
       let lat = selJobs[i].latitude;
       let lng = selJobs[i].longitude;
       let location = selJobs[i].company_location;
-      let cMarker = L.circleMarker([lat, lng], {radius: avgSalary, color:"#000" , fillColor:'#69D025' , fillOpacity: 0.5, weight:0.5})
-      .bindPopup(`Location: ${location}, Average Salary: ${selJobs[i].salary_currency}${selJobs[i].average_salary}, $${avgSalary*5000} in USD, upto ${remote_ratio}% remote work option`);
+      let cMarker = L.circleMarker([lat, lng], {radius: avgSalary, color:"#000" , fillColor: '#69D025' , fillOpacity: 0.5, weight:0.5})
+      .bindPopup(`<b>Location: ${location}, Average Salary: ${selJobs[i].salary_currency}${selJobs[i].average_salary}, $${avgSalary*5000} in USD, upto ${remote_ratio}% remote work option</b>`);
       jobArray.push(cMarker);
-      console.log("Adding circle marker")
-    };
+      
+    }
+
     L.layerGroup(jobArray).addTo(mapLayers.jobTitleLayer);
     
   });
@@ -61,14 +88,14 @@ function optionChangedExp(newExp)
 {
   let jobOption = document.getElementById("selJobTitle");
   let title = jobOption.value;
-  drawMap(newExp,title)
+  drawMap(newExp,title, true)
 };
 function optionChangedJob(newJob)
 {
   let expOption = document.getElementById("selExpLevel");
   let level = expOption.value;
-  //console.log(level, newJob);
-  drawMap(level,newJob)
+ 
+  drawMap(level,newJob, false)
 };
 // Add a legend to the map.
 // let legend = L.control({position: "bottomright"});
