@@ -27,4 +27,5 @@ The dashboard has the following charts:
 - To run the Flask app, you will need to create the necessary SQL databases in pgAdmin. 
 - Open the Staging folder and then the data folder, where you’ll find two .sql scripts to run in pgAdmin. Once your tables are created, import the two CSV files into the database. 
 - Open the Flask folder and run the Flask app (app.py). 
-- When you open your local server, add “/SalaryDashboard” to the URL to view the Data Salary Jobs Dashboard. 
+- When you open your local server, add “/SalaryDashboard” to the URL to view the Data Salary Jobs Dashboard.
+- Project presentation slides can also be viewed here: https://docs.google.com/presentation/d/13IY5aQtuzAoPyHhSg3BCbsVy0zHhwhGOpQQTPaQyQ7g/edit?usp=sharing
