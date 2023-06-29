@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
         xaxis: {
           title: 'Experience Level',
           categoryorder: 'array',
-          categoryarray: ['EX', 'SE', 'MI', 'EN']
+          categoryarray: ['EX', 'SE', 'MI', 'EN'],
+          tickvals: ['EX', 'SE', 'MI', 'EN'],
+          ticktext: ['Executive', 'Senior Level', 'Mid Level', 'Entry Level']
         },
         yaxis: {
           title: 'Average Salary'
@@ -36,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
       Plotly.newPlot('chart1', [trace], layout);
     });
 });
-
 
 
 
